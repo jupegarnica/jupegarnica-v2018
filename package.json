@@ -1,0 +1,26 @@
+{
+  "name": "garni.ca",
+  "version": "1.0.0",
+  "description": "Personal web page of Jupegarnica",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "live-server",
+    "minify:css": "node build/minify-css.js",
+    "minify:js": "node build/minify-js.js",
+    "watch:css": "onchange \"css/*.css\" -- npm run minify:css",
+    "watch:js": "onchange \"script/*.js\" -- npm run minify:js",
+    "watch": "parallelshell \"npm run watch:css\" \"npm run watch:js\"",
+    "dev": "parallelshell \"npm run watch\" \"npm run serve\"",
+    "build": "parallelshell \"npm run minify:css\" \"npm run minify:js\"",
+    "start": "npm run dev"
+  },
+  "author": "Jupegarnica",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.0",
+    "node-minify": "^2.4.2",
+    "onchange": "^4.0.0",
+    "parallelshell": "^3.0.2"
+  }
+}
